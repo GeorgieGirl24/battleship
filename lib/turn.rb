@@ -21,7 +21,7 @@ class Turn
 
   def display_boards
     puts "=============COMPUTER BOARD============="
-    puts @computer.board.render(true)
+    puts @computer.board.render
     puts "==============PLAYER BOARD=============="
     puts @user.board.render(true)
   end
