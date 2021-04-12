@@ -3,12 +3,11 @@ class Cell
   def initialize(coordinate)
     @coordinate = coordinate
     @ship = nil
-    # @empty = empty?
     @fired_upon = false
   end
 
-  def empty? #true if there is no ship
-    @ship.nil? #thanks aiden
+  def empty?
+    @ship.nil? 
   end
 
   def place_ship(ship_type)

@@ -6,8 +6,8 @@ class Board
     @columns = columns
   end
 
-  def make_board_size
-    board_size = 4
+  def make_board_size(board_size=4)
+    # board_size = 4
     alphabet = ("A".."Z").to_a
     @rows = (1..(board_size)).to_a
     @columns = ("A"..alphabet[board_size -1]).to_a
@@ -38,7 +38,7 @@ class Board
   end
 
   def not_overlapping?(spots)
-    spots.all? do |spot| 
+    spots.all? do |spot|
       @cells[spot].empty?
     end
   end
