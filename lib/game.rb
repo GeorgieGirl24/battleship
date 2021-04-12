@@ -26,7 +26,7 @@ class Game
     elsif answer == "Q"
       puts "We'll miss you. Have a great day!"
     else
-      puts "Mind your p's and q's!!"
+      puts "👎: Mind your p's and q's!! Try again...."
       run_game
     end
   end
@@ -44,8 +44,16 @@ class Game
     @user.place_submarine
   end
 
-  def play_game
+  def clear_board
+      @computer = Computer.new()
+      @user = User.new()
+  end
+
+  def play_game(play_again=false)
     count =1
+    if play_again == true
+      clear_board
+    end
     user_set_up
     computer_set_up
     while @computer.ship_count > 0 || @user.ship_count > 0
@@ -74,22 +82,35 @@ class Game
 
   def user_looses
     if @user.ship_count == 0
-      puts "I win. Better luck, next time!!"
-      puts "Would you like to play agian?"
-      response = gets.chomp.upcase
-      abort if response == "Q"
-      play_game if response == "P"
+      computer_won
     end
   end
 
   def computer_looses
     if @computer.ship_count == 0
-      puts "You won! You bested me on my own turf!"
-      puts "Would you like to play again?"
-      puts "'P' to play again or 'Q' to quit"
-      response = gets.chomp.upcase
-      abort if response == "Q"
-      main_menu if response == "P"
+      user_won
+    end
+  end
+
+  def computer_won
+    puts "🖥: I win. Better luck, next time!!"
+    play_again?
+  end
+
+  def user_won
+    puts "👩‍💻: You won! You bested me on my own turf! 🎉"
+    play_again?
+  end
+
+  def play_again?
+    puts "Would you like to play again?"
+    puts "'P' to play again or 'Q' to quit"
+    response = gets.chomp.upcase
+    abort if response == "Q"
+    play_game(play_again=true) if response == "P"
+    if response != "Q" || "P"
+      puts "👎: Follow directions! Try again..."
+      play_again?
     end
   end
 end
