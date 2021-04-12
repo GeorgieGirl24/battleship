@@ -59,9 +59,9 @@ class Turn
     if @computer.board.cells[shot].render == "H" || @user.board.cells[shot].render == "H"
       "hit."
     elsif @computer.board.cells[shot].render == "X"
-      "masterful shot. You sunk the ship!"
+      "masterful shot. You sunk the ship! 💥💣💥"
     elsif user.board.cells[shot].render == "X"
-      "masterful shot. The ship is sunk!"
+      "masterful shot. I sunk the ship! 💥💣💥"
     elsif @computer.board.cells[shot].render == "M" || @user.board.cells[shot].render == "M"
       "miss."
     end

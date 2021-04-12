@@ -10,7 +10,7 @@ class User
 
   def place_cruiser
     puts board.render(true)
-    puts "Enter the squares for the Cruiser (3 spaces): "
+    puts "Enter the squares for the Cruiser (3 spaces): 🚢"
     print "> "
     loop do
       spots = gets.chomp.upcase.gsub(", ", " ").split
@@ -27,7 +27,7 @@ class User
 
   def place_submarine
     puts board.render(true)
-    puts "Now enter the squares for the Submarine (2 spaces): "
+    puts "Now enter the squares for the Submarine (2 spaces): ⛵️"
     print "> "
     loop do
       spots = gets.chomp.upcase.gsub(", ", " ").split
